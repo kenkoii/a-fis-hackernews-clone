@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../firebase.service';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -14,7 +13,7 @@ export class ContentComponent implements OnInit {
   filterSize = 10;
   pages = 0;
   selected = 'topstories';
-  constructor(private firebaseService: FirebaseService, private httpService: HttpService) {
+  constructor(private httpService: HttpService) {
   }
 
   ngOnInit() {  
@@ -29,10 +28,6 @@ export class ContentComponent implements OnInit {
       this.getCurrentItems();
     })
     .catch(err => console.log(err));
-  }
-
-  getTopStories() {
-    return this.firebaseService.getList('v0/topstories', this.filterSize, this.currentIndex * this.filterSize).snapshotChanges();
   }
 
   getCurrentItems() {

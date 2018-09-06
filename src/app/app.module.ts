@@ -4,11 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { environment } from '../environments/environment';
-import { FirebaseService } from './firebase.service';
 import { ContentComponent } from './content/content.component';
 import { ItemCardComponent } from './item-card/item-card.component';
 import { FooterComponent } from './footer/footer.component';
@@ -35,13 +30,9 @@ import { ItemCommentComponent } from './item-comment/item-comment.component';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
     AppRoutingModule
   ],
-  providers: [FirebaseService, HttpService, FavoritesService, UtilityService],
+  providers: [HttpService, FavoritesService, UtilityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
