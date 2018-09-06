@@ -1,0 +1,88 @@
+<article class="post" *ngIf="!isShowLoader">
+  <h4>{{item?.title}}</h4>
+  <div class="media">
+    <div class="media-left">
+      <div class="is-rounded tag is-primary" style="margin: 1px; padding: 1px; width: 32px; height: 32px; border-radius: 9999px;">
+        {{item?.score}}
+      </div>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          posted by <a href={{getUserUrl(item?.by)}}>{{item?.by}}</a>
+          &nbsp;{{getDateFromUnixTime(item?.time) |
+          timeAgo}} &nbsp;
+          <br />
+          source: (<a href={{getUrl(item)}} class="small">{{getHost(item?.url)}}</a>)
+        </p>
+        <nav class="level is-mobile">
+          <div class="level-left">
+            <a class="level-item">
+              <span class="icon is-small"><i class="fas fa-reply"></i></span>
+              <span class="is-size-7 has-text-weight-semibold" (click)="copyUrl(item?.url)">&nbsp;Copy Link</span>
+            </a>
+            <a class="level-item">
+              <span class="icon is-small"><i [ngClass]="{fas: isAlreadyFavorited(item?.id), far: !isAlreadyFavorited(item?.id)}" class="fa-heart"></i></span>
+              <span class="is-size-7 has-text-weight-semibold" (click)="addToFavorites(item?.id)">&nbsp;{{isAlreadyFavorited(item?.id)?'Unsave item':'Save to favorites'}}</span>
+            </a>
+            <!-- <a class="level-item" href={{getHackerNewsUrl(item?.id)}}> -->
+            <a class="level-item" [routerLink]="['/item', item.id]">
+              <span class="icon is-small"><i class="fas fa-comments"></i></span>
+              <span class="is-size-7 has-text-weight-semibold">&nbsp;View {{item?.descendants}} comments</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- <div class="media-right">
+      <span class="has-text-grey-light"><i class="fa fa-comments"></i> <a class="has-text-grey-light" href=""></a></span>
+    </div> -->
+  </div>
+  <hr>
+</article>
+<div class="spinner" *ngIf="isShowLoader">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
+
+<!-- <div class="card item-card">
+  <div class="container">
+    <div class="card-content">
+      <div class="content">
+        <div class="columns">
+          <div class="column is-2">
+            <div class="has-text-centered">
+              <p class="title">{{item.score || 0}}</p>
+              <p class="heading">{{item.by}}</p>
+              <p class="heading">{{getDateFromUnixTime(item.time) | timeAgo}}</p>
+            </div>
+          </div>
+          <div class="column">
+            <div>
+                <p class="title is-4">{{item.title}}</p>
+                <div style="margin-top: 50px; float: left;">
+                  <nav class="level is-mobile">
+                    <div class="level-left">
+                      <a class="level-item">
+                        <span class="icon is-small"><i class="fas fa-reply"></i></span>
+                      </a>
+                      <a class="level-item">
+                        <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+                      </a>
+                      <a class="level-item">
+                        <span class="icon is-small"><i class="far fa-heart"></i></span>
+                      </a>
+                    </div>
+                  </nav>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    <footer class="card-footer">
+    <a class="card-footer-item">View 34 Comments</a>
+    <a href="#" class="card-footer-item">Save</a>
+  </footer>
+  </div> -->

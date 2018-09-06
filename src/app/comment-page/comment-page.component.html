@@ -1,0 +1,32 @@
+<section class="container">
+  <div class="columns">
+    <div class="column">
+      <div class="box content">
+          <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <span class="title">{{item?.title}}</span>
+                    <br>
+                    <small>source: <a href="item?.url">({{getHost(item?.url)}})</a> · by <a>{{item?.by}}</a> · {{getDateFromUnixTime(item?.time) | timeAgo}}</small>
+                  </p>
+                  <nav class="level is-mobile">
+                      <div class="level-left">
+                        <a class="level-item">
+                          <span class="icon is-small"><i class="fas fa-reply"></i></span>
+                          <span class="is-size-7 has-text-weight-semibold" (click)="copyUrl(item?.url)">&nbsp;Copy Link</span>
+                        </a>
+                        <a class="level-item">
+                          <span class="icon is-small"><i [ngClass]="{fas: isAlreadyFavorited(item?.id), far: !isAlreadyFavorited(item?.id)}" class="fa-heart"></i></span>
+                          <span class="is-size-7 has-text-weight-semibold" (click)="addToFavorites(item?.id)">&nbsp;{{isAlreadyFavorited(item?.id)?'Unsave item':'Save to favorites'}}</span>
+                        </a>
+                      </div>
+                    </nav>
+                </div>
+                <app-item-comment *ngFor="let item of item?.kids; index as i;" [itemId]="item"></app-item-comment>
+              </div>
+            </article>
+      </div>
+    </div>
+  </div>
+</section>

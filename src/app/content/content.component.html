@@ -1,0 +1,26 @@
+<nav class="navbar is-white">
+  <div class="container">
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" [ngClass]="{'is-active': selected == 'topstories'}" (click)="onClickFilter('topstories')">🏆 Top</a>
+        <a class="navbar-item" [ngClass]="{'is-active': selected == 'beststories'}" (click)="onClickFilter('beststories')">🔥 Best</a>
+        <a class="navbar-item" [ngClass]="{'is-active': selected == 'newstories'}" (click)="onClickFilter('newstories')">⏰ New</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="container">
+  <div class="columns">
+    <div class="column">
+      <div class="box content">
+        <app-item-card *ngFor="let item of displayItems; index as i;" [itemId]="item"></app-item-card>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container">
+  <nav class="pagination is-right" role="navigation" aria-label="pagination">
+    <a class="pagination-previous" [ngStyle]="{'visibility': isFirst()}" (click)="onClickPrevious()">Previous</a>
+    <a class="pagination-next" (click)="onClickNext()">Next page</a>
+  </nav>
+</section>

@@ -1,0 +1,17 @@
+<section class="container">
+  <div class="columns">
+    <div class="column">
+      <div class="box content" *ngIf="displayItems.length > 0">
+        <app-item-card *ngFor="let item of displayItems; index as i;" [itemId]="item" (itemRemoved)="onItemRemoved($event, i)"></app-item-card>
+      </div>
+      <div class="box content" *ngIf="displayItems.length == 0">
+        <div class="has-text-centered">
+            <p class="heading">Uh oh, no saved items.</p>
+            <p class="title">🙄</p>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+</section>
+  

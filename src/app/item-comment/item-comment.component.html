@@ -1,0 +1,19 @@
+<article class="media">
+  <figure class="media-left">
+    <!-- <p class="image is-48x48">
+      <img src="https://bulma.io/images/placeholders/96x96.png">
+    </p> -->
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>{{item?.by}}</strong>
+        <br>
+          <span [innerHTML]="item?.text"></span>
+        <br>
+        <small>{{getDateFromUnixTime(item?.time) | timeAgo}}</small>
+      </p>
+    </div>
+    <app-item-comment *ngFor="let item of item?.kids; index as i;" [itemId]="item"></app-item-comment>
+  </div>
+</article>
