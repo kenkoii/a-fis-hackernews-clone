@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from './firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +7,4 @@ import { FirebaseService } from './firebase.service';
 })
 export class AppComponent {
   title = 'afis-hackernews';
-
 }

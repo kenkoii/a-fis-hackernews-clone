@@ -1,5 +1,7 @@
 # AfisHackernews
 
+This is a clone of Y-combinator's [hackernews](https://news.ycombinator.com/) site. You can view the project [here](https://hackernews-clone-afis.firebaseapp.com/).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
 
 ## Development server
