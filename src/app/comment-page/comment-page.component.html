@@ -8,7 +8,7 @@
                   <p>
                     <span class="title">{{item?.title}}</span>
                     <br>
-                    <small>source: <a href="item?.url">({{getHost(item?.url)}})</a> · by <a>{{item?.by}}</a> · {{getDateFromUnixTime(item?.time) | timeAgo}}</small>
+                    <small>source: <a href={{item?.url}}>({{getHost(item?.url)}})</a> · by <a href={{getUserUrl(item?.by)}}>{{item?.by}}</a> · {{getDateFromUnixTime(item?.time) | timeAgo}}</small>
                   </p>
                   <nav class="level is-mobile">
                       <div class="level-left">

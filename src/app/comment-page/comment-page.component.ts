@@ -75,4 +75,8 @@ export class CommentPageComponent implements OnInit, OnDestroy {
     
   }
 
+  getUserUrl(username) {
+    return `https://news.ycombinator.com/user?id=${username}`;
+  }
+
 }
